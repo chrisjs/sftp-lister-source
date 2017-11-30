@@ -29,7 +29,7 @@ dataflow:> app register --name filenameTransformer --type processor --uri file:/
 
 # Create inbound SFTP lister stream
 
-dataflow:> stream create inboundSftpLister --definition "sftpLister --username=user --password=pass --host=127.0.0.1 --allow-unknown-keys=true --remote-dir=/remote/dir/ | filenameTransformer --uri=file:////path/to/ingest-1.0.0.jar --data-source-url=jdbc:h2:tcp://localhost:19092/mem:dataflow --data-source-user-name=sa --sftp-username=user --sftp-password=pass --sftp-host=127.0.0.1 --remote-file-path-job-parameter-name=remoteFilePath --local-file-path-job-parameter-name=localFilePath --local-file-path-job-parameter-value=/local/path/ > :filesAvailable"
+dataflow:> stream create inboundSftpLister --definition "sftpLister --username=user --password=pass --host=127.0.0.1 --port=6666 --allow-unknown-keys=true --remote-dir=/remote/dir/ | filenameTransformer --uri=file:////path/to/ingest-1.0.0.jar --data-source-url=jdbc:h2:tcp://localhost:19092/mem:dataflow --data-source-user-name=sa --sftp-username=user --sftp-password=pass --sftp-host=127.0.0.1 --sftp-port=6666 --remote-file-path-job-parameter-name=remoteFilePath --local-file-path-job-parameter-name=localFilePath --local-file-path-job-parameter-value=/local/path/ > :filesAvailable"
 
 # Deploy stream enabling message header passthrough
 

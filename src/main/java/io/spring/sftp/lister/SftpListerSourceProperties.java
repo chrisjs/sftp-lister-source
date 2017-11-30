@@ -12,15 +12,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties
 public class SftpListerSourceProperties {
+	private static final Integer DEFAULT_SFTP_PORT = 22;
+
 	/**
 	 * The SFTP host.
 	 */
 	private String host;
 
 	/**
-	 * The (optional) SFTP port.
+	 * The (optional) SFTP port, defaults to 22.
 	 */
-	private Integer port;
+	private Integer port = DEFAULT_SFTP_PORT;
 
 	/**
 	 * The SFTP username.
